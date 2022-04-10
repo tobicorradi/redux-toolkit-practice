@@ -12,11 +12,8 @@ const AddPostForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(title && content){
-            dispatch(postAdded({
-                id: nanoid(),
-                title,
-                content
-            }))
+            //Since we created a prepare callback inside our slices, we can pass 'title' and 'content' only without worrying about generating a new ID.
+            dispatch(postAdded(title, content))
             setTitle('')
             setContent('')
         }
