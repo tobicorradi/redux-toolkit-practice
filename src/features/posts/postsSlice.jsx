@@ -10,6 +10,7 @@ export const postsSlice = createSlice({
     initialState,
     reducers: {
         postAdded(state, action){
+            //We are not actually mutating the state, since Toolkit uses Immer.js in it's core, preventing us from doing such thing. 
             state.push(action.payload)
         }
     }
